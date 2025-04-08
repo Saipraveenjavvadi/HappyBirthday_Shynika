@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Shynika</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic styling for alignment */
+        body {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Hide the audio element */
+        audio {
+            display: none;
+        }
+
+        .birthday-gift {
+            text-align: center;
+            position: relative;
+        }
+
+        .gift {
+            position: relative;
+            margin-top: 150px;
+        }
+
+        .wishes {
+            color: palevioletred;
+            font-size: 36px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .sparkles {
+            position: relative;
+        }
+
+        .spark1, .spark2, .spark3, .spark4, .spark5, .spark6 {
+            position: absolute;
+            background-color: gold;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: sparkle 1s infinite;
+        }
+
+        .spark1 { top: 0; left: 50%; animation-delay: 0s; }
+        .spark2 { top: 20%; left: 70%; animation-delay: 0.2s; }
+        .spark3 { top: 40%; left: 90%; animation-delay: 0.4s; }
+        .spark4 { top: 60%; left: 70%; animation-delay: 0.6s; }
+        .spark5 { top: 80%; left: 50%; animation-delay: 0.8s; }
+        .spark6 { top: 100%; left: 30%; animation-delay: 1s; }
+
+        @keyframes sparkle {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* Animation for text coming out of the gift box */
+        #click:checked ~ .birthday-gift .wishes {
+            opacity: 1;
+            transform: translate(-50%, -200%);
+            transition-delay: 0.5s;
+        }
+
+        /* Header styling */
+        .header {
+            display: flex;
+            gap: 10px;
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: top 1s ease-in-out;
+        }
+
+        .header .word {
+            color: palevioletred;
+            font-size: 36px;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        #click:checked ~ .header {
+            top: 20px;
+        }
+
+        #click:checked ~ .header .word:nth-child(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1s;
+        }
+        #click:checked ~ .header .word:nth-child(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.3s;
+        }
+        #click:checked ~ .header .word:nth-child(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Audio element is hidden but still functional -->
+    <audio id="birthdayAudio">
+        <source src="Dheema-MassTamilan (mp3cut.net).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <input id="click" type="checkbox">
+
+    <!-- Header that appears at the top -->
+    <div class="header">
+        <span class="word">Happy</span>
+        <span class="word">Birthday</span>
+        <span class="word">Shynikaa!</span>
+    </div>
+
+    <!-- Gift box and wishes -->
+    <div class="birthday-gift">
+        <div class="gift">
+            <label class="click" for="click"></label>
+            <h1 class="wishes">Happy Birthday Shynikaaa...!</h1>
+            <div class="sparkles">
+                <div class="spark1"></div>
+                <div class="spark2"></div>
+                <div class="spark3"></div>
+                <div class="spark4"></div>
+                <div class="spark5"></div>
+                <div class="spark6"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to play audio when the checkbox is clicked
+        const audio = document.getElementById("birthdayAudio");
+        const checkbox = document.getElementById("click");
+
+        checkbox.addEventListener("change", function () {
+            if (this.checked) {
+                audio.play(); // Play the audio
+            } else {
+                audio.pause(); // Pause the audio
+                audio.currentTime = 0; // Reset audio to the beginning
+            }
+        });
+    </script>
+</body>
+</html>

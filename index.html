@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Shynika</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic styling for alignment */
+        body {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: palevioletred;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Hide the audio element */
+        audio {
+            display: none;
+        }
+
+        .birthday-gift {
+            text-align: center;
+        }
+
+        .wishes {
+            color: rgb(253, 169, 183);
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Audio element is hidden but still functional -->
+    <audio id="birthdayAudio">
+        <source src="Dheema-MassTamilan (mp3cut.net).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="birthday-gift">
+        <div class="gift">
+            <input id="click" type="checkbox">
+            <label class="click" for="click"></label>
+            <h1 class="wishes">Happy Birthday Shynikaaa...!</h1>
+            <div class="sparkles">
+                <div class="spark1"></div>
+                <div class="spark2"></div>
+                <div class="spark3"></div>
+                <div class="spark4"></div>
+                <div class="spark5"></div>
+                <div class="spark6"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to play audio when the checkbox is clicked
+        const audio = document.getElementById("birthdayAudio");
+        const checkbox = document.getElementById("click");
+
+        checkbox.addEventListener("change", function () {
+            if (this.checked) {
+                audio.play(); // Play the audio
+            } else {
+                audio.pause(); // Pause the audio
+                audio.currentTime = 0; // Reset audio to the beginning
+            }
+        });
+    </script>
+</body>
+</html>
